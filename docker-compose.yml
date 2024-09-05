@@ -1,0 +1,30 @@
+networks:
+    thrift-practice-network:
+        driver: bridge
+services:
+    thrift-client:
+        container_name: thrift-client
+        build:
+            context: thrift-practice-client
+        image: thrift-practice-client:latest
+        security_opt:
+          - "seccomp:unconfined"
+        tty: true
+        stdin_open: true
+        depends_on:
+            - thrift-service
+        networks:
+            - thrift-practice-network
+    thrift-service:
+        container_name: thrift-service
+        build:
+            context: thrift-practice-service
+        image: thrift-practice-service:latest
+        security_opt:
+          - "seccomp:unconfined"
+        tty: true
+        stdin_open: true
+        ports:
+            - 19090:9090
+        networks:
+            - thrift-practice-network

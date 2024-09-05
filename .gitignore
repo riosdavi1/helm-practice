@@ -1,0 +1,7 @@
+thrift-practice-service/target/
+thrift-practice-service/dependency-reduced-pom.xml
+thrift-practice-client/target/
+thrift-practice-client/dependency-reduced-pom.xml
+.project
+.classpath
+.settings/
